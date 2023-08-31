@@ -1,25 +1,14 @@
-import processing.serial.*;
-import cc.arduino.*;
-Arduino arduino;
-
-public void setup() {
+void setup(){
   size(1000,1000);
-  arduino = new Arduino(this, Arduino.list()[0], 57600); //change the [0] to a [1] or [2] etc. if your program doesn't work
 }
-
-public void draw() {
-  background(192);
-  stroke(0);
+void draw(){
   fill(255,255,255);
-  
-  int y = arduino.analogRead(5);
-  System.out.println(y);
-  
-   //ears
-    ellipse(580-(y/10),265+(y/4),55,55);
-    ellipse(730+(y/10),270+(y/4),55,55);
-    ellipse(580-(y/10),265+(y/4),25,25);
-    ellipse(730+(y/10),270+(y/4),25,25);
+  stroke(0);
+  //ears
+    ellipse(580,265,55,55);
+    ellipse(730,270,55,55);
+    ellipse(580,265,25,25);
+    ellipse(730,270,25,25);
     //editing the back part
       noStroke();
       fill(get(10,10));
@@ -57,11 +46,11 @@ public void draw() {
   //body
     ellipse(485,500,460,290);
   //head
-    ellipse(700,430+(y/6),170,100);
-    ellipse(650,370+(y/6),250,235);
+    ellipse(700,430,170,100);
+    ellipse(650,370,250,235);
     
     noStroke();
-    ellipse(700,430+(y/6),170,100);
+    ellipse(700,430,170,100);
     
     
   //face features
@@ -70,9 +59,12 @@ public void draw() {
       ellipse(660,370,30,40);
       ellipse(740,370,30,40);
     //nose
-      ellipse(735,410+(y/6),45,20);
-  //THE SUN
-    fill(255,255,0);
-    ellipse(1100-(y),100,150,150);
+      ellipse(735,410,45,20);
+    
+  
+  //point
+  System.out.println(mouseX + ", " + mouseY);
 
 }
+
+
